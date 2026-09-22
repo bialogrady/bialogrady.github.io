@@ -28,7 +28,7 @@ function itemMarkup(item, kind, full = false) {
 }
 async function loadContent(kind, targetId) {
   const target = document.getElementById(targetId); if (!target) return;
-  try { const items = await getItems(kind); target.innerHTML = items.length ? items.map(item => itemMarkup(item, kind)).join('') : '<div class="empty-state">Brak opublikowanych wpisów. Nowe materiały pojawią się tutaj po publikacji.</div>'; }
+  try { const items = await getItems(kind); const limit = Number(target.dataset.limit || 0); const visible = limit ? items.slice(0, limit) : items; target.innerHTML = visible.length ? visible.map(item => itemMarkup(item, kind)).join('') : '<div class="empty-state">Brak opublikowanych wpisów. Nowe materiały pojawią się tutaj po publikacji.</div>'; }
   catch (error) { target.innerHTML = '<div class="empty-state">Treści będą dostępne po opublikowaniu pierwszego wpisu.</div>'; }
 }
 async function loadDetail() {
