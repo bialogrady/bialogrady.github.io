@@ -15,6 +15,14 @@ function itemMarkup(item, kind, full = false) {
   const link = `wpis.html?kind=${encodeURIComponent(kind)}&id=${encodeURIComponent(item.id)}`;
   const extra = item.source ? `<small class="source">Źródło: ${escapeHtml(item.source)}</small>` : '';
   const title = `<a class="entry-title-link" href="${link}">${escapeHtml(item.title)}</a>`;
+  if (kind === 'kronika' && !full) {
+    const firstImage = (item.attachments || []).find(file => (file.type || '').startsWith('image/'));
+    const firstPdf = (item.attachments || []).find(file => file.type === 'application/pdf' || (file.name || '').toLowerCase().endsWith('.pdf'));
+    const thumb = firstImage
+      ? `<img src="${safePath(firstImage.path)}" alt="${escapeHtml(item.title)}">`
+      : `<span class="archive-file-icon">${firstPdf ? 'PDF' : 'DOK'}</span>`;
+    return `<article class="archive-card"><a class="archive-thumb" href="${link}">${thumb}</a><div class="archive-card-body"><time>${escapeHtml(item.date || item.year || '')}</time><h3>${title}</h3><p>${escapeHtml(item.text || '')}</p>${item.source ? `<small>Źródło: ${escapeHtml(item.source)}</small>` : ''}</div></article>`;
+  }
   if (full) return `<article class="full-article"><p class="eyebrow">${escapeHtml(kind === 'kronika' ? 'Kronika' : kind === 'ogloszenia' ? 'Ogłoszenie' : 'Aktualność')}</p><h1>${escapeHtml(item.title)}</h1><time class="article-date">${escapeHtml(item.date || item.year || '')}</time><div class="article-body">${escapeHtml(item.text).replace(/\n/g, '<br>')}</div>${extra}${item.link ? `<p><a class="source-link" href="${safePath(item.link)}" target="_blank" rel="noopener">Przejdź do źródła zewnętrznego ↗</a></p>` : ''}${attachmentMarkup(item.attachments)}</article>`;
   return `<article class="feed-item"><time>${escapeHtml(item.date || item.year || '')}</time><div><h3>${title}</h3><p>${escapeHtml(item.text)}</p>${extra}</div><a class="read-link" href="${link}">Czytaj całość →</a></article>`;
 }
