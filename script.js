@@ -1,11 +1,11 @@
 const toggle = document.querySelector('.menu-toggle');
-const nav = document.querySelector('nav');
+const header = document.querySelector('.header');
 
 toggle?.addEventListener('click', () => {
-  nav.classList.toggle('open');
-  toggle.setAttribute('aria-expanded', nav.classList.contains('open'));
+  header.classList.toggle('nav-open');
+  toggle.setAttribute('aria-expanded', header.classList.contains('nav-open'));
 });
 
 document.querySelectorAll('nav a').forEach((link) => {
-  link.addEventListener('click', () => nav.classList.remove('open'));
+  link.addEventListener('click', () => header.classList.remove('nav-open'));
 });

@@ -1,69 +1,37 @@
 <!doctype html>
 <html lang="pl">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Białogrądy — lokalna strona z ogłoszeniami, wspomnieniami i materiałami o naszej okolicy.">
-  <title>Białogrądy — nasze miejsce</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Białogrądy — informacje, ogłoszenia, historia i życie naszej miejscowości.">
+  <title>Białogrądy | Podlaskie</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="site-header">
-    <a class="brand" href="#start" aria-label="Białogrądy — strona główna">
-      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
-      <span><strong>Białogrądy</strong><small>nasze miejsce</small></span>
-    </a>
-    <nav aria-label="Główna nawigacja">
-      <a href="#ogloszenia">Ogłoszenia</a>
-      <a href="#kronika">Kronika</a>
-      <a href="#okolica">Okolica</a>
-      <a class="nav-cta" href="#kontakt">Prześlij propozycję</a>
-    </nav>
-    <button class="menu-toggle" aria-label="Otwórz menu">☰</button>
-  </header>
+  <div class="topline"><div class="wrap top-inner"><span>BIAŁOGRĄDY · GMINA GRAJEWO · POWIAT GRAJEWSKI</span><span>STRONA NIEOFICJALNA</span></div></div>
+  <header class="header"><div class="wrap header-inner">
+    <a href="#start" class="identity"><div><strong>BIAŁOGRĄDY</strong><small>miejsce z historią</small></div></a>
+    <nav><a href="#aktualnosci">Aktualności</a><a href="#kronika">Kronika</a><a href="#okolica">Okolica</a><a href="#kontakt">Kontakt</a></nav>
+    <button class="menu-toggle" aria-label="Menu">☰</button>
+  </div></header>
 
   <main id="start">
-    <section class="hero section-wrap">
-      <div class="hero-copy">
-        <p class="eyebrow">Białogrądy · gmina Grajewo · Podlasie</p>
-        <h1>Tu zaczyna się<br><em>nasza opowieść.</em></h1>
-        <p class="hero-lead">Jedno miejsce na bieżące ogłoszenia, stare wspomnienia i rzeczy, które warto zachować dla następnych pokoleń.</p>
-        <div class="hero-actions"><a class="button button-dark" href="#kronika">Zajrzyj do kroniki <span>↗</span></a><a class="text-link" href="#o-stronie">O tej stronie</a></div>
-      </div>
-      <div class="hero-art" aria-label="Ilustracja podlaskiego krajobrazu" role="img">
-        <div class="sun"></div><div class="hill hill-back"></div><div class="hill hill-front"></div><div class="field field-one"></div><div class="field field-two"></div><div class="tree tree-a"></div><div class="tree tree-b"></div><div class="signpost"><b>BIAŁOGRĄDY</b><span>nasza wieś</span></div>
-      </div>
-    </section>
+    <section class="hero"><img class="hero-photo" src="assets/bialogrady-hero.jpg" alt="Podlaski krajobraz w okolicy Białogrądów"><div class="hero-shade"></div><img class="hero-sign" src="assets/bialogrady-sign-isolated.png" alt="Zielona tablica z napisem BIAŁOGRĄDY"><div class="wrap hero-content"><div class="hero-kicker">WITAMY W BIAŁOGRĄDACH</div><h1>Tu warto<br><span>zostać na dłużej.</span></h1><p>Informacje, wspomnienia i codzienne sprawy naszej miejscowości na skraju podlaskiego krajobrazu.</p><div class="hero-buttons"><a class="btn btn-yellow" href="#aktualnosci">Zobacz, co nowego <b>→</b></a><a class="hero-link" href="#kronika">Poznaj historię miejscowości</a></div></div><div class="hero-location">53°30′N<br><b>22°36′E</b></div></section>
 
-    <section id="ogloszenia" class="section-wrap section-block">
-      <div class="section-heading"><div><p class="eyebrow">Co nowego</p><h2>Ogłoszenia i informacje</h2></div><span class="section-note">Ostatnia aktualizacja: <strong>do uzupełnienia</strong></span></div>
-      <div class="notice-grid">
-        <article class="notice featured"><span class="notice-tag">Ważne</span><h3>W tym miejscu pojawią się najważniejsze informacje dla mieszkańców.</h3><p>Terminy, zebrania, utrudnienia, wydarzenia i inne rzeczy, o których dobrze wiedzieć.</p><div class="notice-footer"><span>dodaj własną treść</span><span>↗</span></div></article>
-        <article class="notice"><span class="notice-tag">Wydarzenie</span><h3>Masz informację, którą warto przekazać sąsiadom?</h3><p>Wyślij propozycję — po sprawdzeniu może pojawić się na stronie.</p><div class="notice-footer"><a href="#kontakt">Napisz do nas</a><span>↗</span></div></article>
-        <article class="notice"><span class="notice-tag">Dla mieszkańców</span><h3>Strona nieoficjalna, tworzona społecznie.</h3><p>To nie jest strona urzędu, gminy ani sołectwa. Ma służyć lokalnej społeczności.</p><div class="notice-footer"><span>Białogrądy</span><span>✦</span></div></article>
-      </div>
-    </section>
+    <section id="aktualnosci" class="wrap news-section"><div class="section-bar"><div><span class="section-number">01</span><h2>Aktualności</h2></div><a href="#kontakt" class="all-link">Dodaj ogłoszenie <b>→</b></a></div><div class="news-grid">
+      <article class="news-card main-news"><div class="card-label">NAJNOWSZE</div><h3>Ważne informacje dla mieszkańców miejscowości</h3><p>W tym miejscu będą pojawiać się ogłoszenia, terminy, wydarzenia i sprawy, o których warto wiedzieć.</p><a href="#kontakt">Prześlij treść ogłoszenia <b>→</b></a></article>
+      <article class="news-card"><div class="date">DO UZUPEŁNIENIA <i></i></div><h3>Co dzieje się w naszej okolicy?</h3><p>Tu możesz dodać krótką informację o wydarzeniu, spotkaniu lub lokalnej inicjatywie.</p><a href="#kontakt">Czytaj więcej <b>→</b></a></article>
+      <article class="news-card"><div class="date">MATERIAŁ MIESZKAŃCA <i></i></div><h3>Masz temat? Podeślij propozycję.</h3><p>Nie publikujemy nadesłanych treści automatycznie. Najpierw je sprawdzimy.</p><a href="#kontakt">Napisz do nas <b>→</b></a></article>
+    </div></section>
 
-    <section id="kronika" class="section-wrap section-block split-section">
-      <div class="split-intro"><p class="eyebrow">Zachować dla pamięci</p><h2>Kronika<br><em>Białogradów</em></h2><p>Stare gazety, dokumenty, zdjęcia i opowieści związane z naszą miejscowością. Bez zadęcia — po prostu rzeczy, o których nie chcemy zapomnieć.</p><a class="button button-outline" href="#kontakt">Podpowiedz materiał <span>↗</span></a></div>
-      <div class="timeline">
-        <article class="timeline-item"><div class="year">1830</div><div><h3>Najstarsze wzmianki</h3><p>Tu dodaj opis znalezionego dokumentu, mapy albo księgi. Możesz wkleić skan i podać dokładne źródło.</p><small>Źródło: do uzupełnienia</small></div></article>
-        <article class="timeline-item"><div class="year">1944</div><div><h3>Wspomnienia mieszkańców</h3><p>Opowieści rodzinne, fotografie i wydarzenia zapamiętane przez osoby związane z Białogrądami.</p><small>Materiał: do uzupełnienia</small></div></article>
-        <article class="timeline-item"><div class="year">Dziś</div><div><h3>Nasza wieś teraz</h3><p>Miejsce na aktualne zdjęcia, lokalne inicjatywy i wszystko, co tworzy codzienność Białogradów.</p><small>Dodaj pierwszy wpis</small></div></article>
-      </div>
-    </section>
+    <section id="kronika" class="archive"><div class="wrap archive-grid"><div class="archive-title"><span class="section-number yellow">02</span><h2>Kronika<br><strong>miejscowości</strong></h2><p>Dokumenty, gazety, zdjęcia i wspomnienia związane z miejscowością. Zapisujemy to, co mogłoby zniknąć.</p><a class="btn btn-outline" href="#kontakt">Podpowiedz materiał <b>→</b></a></div><div class="archive-list"><article><span class="archive-year">1830</span><div><h3>Pierwsze dokumenty i wzmianki</h3><p>Miejsce na opis znalezionego dokumentu wraz z dokładnym źródłem.</p><small>ŹRÓDŁO: DO UZUPEŁNIENIA</small></div></article><article><span class="archive-year">1944</span><div><h3>Wojna i losy mieszkańców</h3><p>Wspomnienia, rodzinne fotografie i lokalne historie.</p><small>MATERIAŁ: DO UZUPEŁNIENIA</small></div></article><article><span class="archive-year">TERAZ</span><div><h3>Białogrąd współczesny</h3><p>Zdjęcia i opowieści o tym, jak wygląda miejscowość dziś.</p><small>DODAJ PIERWSZY WPIS</small></div></article></div></div></section>
 
-    <section id="okolica" class="region-band"><div class="section-wrap region-inner"><div><p class="eyebrow">Północno-wschodnie Podlasie</p><h2>Wieś między<br><em>łąkami a opowieścią.</em></h2></div><div class="region-copy"><p>Białogrądy leżą w gminie Grajewo, w powiecie grajewskim, w województwie podlaskim. To okolica, w której ważne są przestrzeń, przyroda, sąsiedztwo i pamięć o tym, co było.</p><p>W pobliżu znajduje się dolina Biebrzy — jeden z najbardziej charakterystycznych krajobrazów regionu. Ta strona ma być przede wszystkim miejscem o samej wsi i jej mieszkańcach.</p><a href="https://samorzad.gov.pl/web/gmina-grajewo" target="_blank" rel="noopener" class="text-link light">Oficjalna strona gminy Grajewo ↗</a></div></div></section>
+    <section id="okolica" class="area"><div class="wrap area-grid"><div><span class="section-number">03</span><h2>Nasza<br><strong>okolica</strong></h2></div><div class="area-copy"><p>Białogrąd leży w gminie Grajewo, w powiecie grajewskim, w województwie podlaskim. To przestrzeń łąk, dróg, lasów i ludzi, którzy znają to miejsce najlepiej.</p><p>W szerszym krajobrazie regionu ważną rolę odgrywa dolina Biebrzy — przyroda, która nadaje północno-wschodniemu Podlasiu jego charakter.</p><a href="https://samorzad.gov.pl/web/gmina-grajewo" target="_blank" rel="noopener">Oficjalna strona gminy Grajewo ↗</a></div></div></section>
 
-    <section id="o-stronie" class="section-wrap about-section"><div class="about-card"><span class="stamp">NIEOFICJALNIE<br>OD MIESZKAŃCÓW</span><div><p class="eyebrow">Po co ta strona?</p><h2>Żeby Białogrądy<br>miały swoje miejsce w sieci.</h2><p>Nie zastępujemy oficjalnych komunikatów. Zbieramy to, co lokalne: ogłoszenia, wspomnienia, dokumenty i ciekawostki. Jeśli coś wymaga potwierdzenia, zaznaczymy to.</p></div></div></section>
-
-    <section id="kontakt" class="contact-section"><div class="section-wrap contact-inner"><div><p class="eyebrow">Masz pomysł?</p><h2>Dodaj coś<br><em>od siebie.</em></h2><p>Podpowiedz artykuł, dokument, zdjęcie albo temat do opisania. Nie publikujemy niczego automatycznie — najpierw wszystko sprawdzimy.</p></div><div class="contact-box"><p class="contact-label">Adres do propozycji</p><a class="email" href="mailto:kontakt.bialogrady@gmail.com">kontakt.bialogrady@gmail.com</a><p class="contact-small">Jeśli ten adres będzie zajęty, zmień go w pliku <code>index.html</code> w dwóch miejscach.</p><a class="button button-light" href="mailto:kontakt.bialogrady@gmail.com?subject=Propozycja%20na%20stron%C4%99%20Bia%C5%82ograd%C3%B3w">Napisz wiadomość <span>↗</span></a></div></div></section>
+    <section id="kontakt" class="contact"><div class="wrap contact-grid"><div><span class="section-number yellow">04</span><h2>Masz coś<br><strong>dla Białogrądach?</strong></h2><p>Stary artykuł, zdjęcie, dokument, wspomnienie albo ogłoszenie — podeślij propozycję. Każdy materiał zostanie sprawdzony przed publikacją.</p></div><div class="contact-panel"><span>ADRES DO PROPOZYCJI</span><a href="mailto:kontakt.bialogrady@gmail.com">kontakt.bialogrady@gmail.com</a><small>Jeśli wybierzesz inny adres e-mail, podmień go w tym pliku w dwóch miejscach.</small><a class="btn btn-yellow" href="mailto:kontakt.bialogrady@gmail.com?subject=Propozycja%20na%20stron%C4%99%20Bia%C5%82ogr%C4%85du">Napisz wiadomość <b>→</b></a></div></div></section>
   </main>
-
-  <footer class="site-footer"><div class="section-wrap footer-inner"><span>© 2026 Białogrądy — nasze miejsce</span><span>Strona nieoficjalna · materiały ze wskazanym źródłem</span></div></footer>
+  <footer><div class="wrap footer-inner"><div class="identity footer-brand"><strong>BIAŁOGRĄDY</strong></div><span>Strona nieoficjalna · tworzona społecznie</span><span>© 2026</span></div></footer>
   <script src="script.js"></script>
 </body>
 </html>
