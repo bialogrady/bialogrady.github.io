@@ -40,6 +40,17 @@ async function loadImportant() {
     target.innerHTML = items.length ? items.map(item => { const link = `wpis.html?kind=${item.__kind}&id=${encodeURIComponent(item.id)}`; return `<article><span class="alert-type">WAŻNE</span><div><h3><a href="${link}">${escapeHtml(item.title)}</a></h3><p>${escapeHtml(item.text)}</p>${item.valid_until ? `<small>Ważne do: ${escapeHtml(item.valid_until)}</small>` : ''}</div><a href="${link}" aria-label="Czytaj komunikat">→</a></article>`; }).join('') : '<div class="empty-state">Brak wyróżnionych komunikatów.</div>';
   } catch (error) { target.innerHTML = '<div class="empty-state">Brak wyróżnionych komunikatów.</div>'; }
 }
+async function loadGminaUpdate() {
+  const target = document.getElementById('gmina-update'); if (!target) return;
+  try {
+    const response = await fetch('content/gmina.json');
+    const data = await response.json();
+    const item = data.item;
+    target.innerHTML = `<p class="eyebrow">Z Gminy Grajewo</p><time>${escapeHtml(item.date || '')}</time><h3>${escapeHtml(item.title || '')}</h3><p>${escapeHtml(item.description || '')}</p><a href="${safePath(item.link)}" target="_blank" rel="noopener">Czytaj na stronie Gminy Grajewo ↗</a><small class="gmina-source">Automatycznie pobrano z oficjalnego serwisu gminy.</small>`;
+  } catch (error) {
+    target.innerHTML = '<p class="eyebrow">Z Gminy Grajewo</p><p>Nie udało się wczytać najnowszej informacji.</p><a href="https://samorzad.gov.pl/web/gmina-grajewo" target="_blank" rel="noopener">Otwórz stronę Gminy Grajewo ↗</a>';
+  }
+}
 async function loadDetail() {
   const target = document.getElementById('article-view'); if (!target) return;
   const params = new URLSearchParams(location.search); const kind = params.get('kind'); const id = params.get('id');
@@ -49,4 +60,4 @@ async function loadDetail() {
 }
 function escapeHtml(value) { return String(value ?? '').replace(/[&<>'"]/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[char])); }
 function safePath(value) { return String(value || '').replace(/[^a-zA-Z0-9_:\/.?=&%#-]/g, ''); }
-document.addEventListener('DOMContentLoaded', () => { loadContent('aktualnosci', 'aktualnosci-list'); loadContent('ogloszenia', 'ogloszenia-list'); loadContent('kronika', 'kronika-list'); loadImportant(); loadDetail(); });
+document.addEventListener('DOMContentLoaded', () => { loadContent('aktualnosci', 'aktualnosci-list'); loadContent('ogloszenia', 'ogloszenia-list'); loadContent('kronika', 'kronika-list'); loadImportant(); loadGminaUpdate(); loadDetail(); });
