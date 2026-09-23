@@ -31,6 +31,15 @@ async function loadContent(kind, targetId) {
   try { const items = await getItems(kind); const limit = Number(target.dataset.limit || 0); const visible = limit ? items.slice(0, limit) : items; target.innerHTML = visible.length ? visible.map(item => itemMarkup(item, kind)).join('') : '<div class="empty-state">Brak opublikowanych wpisów. Nowe materiały pojawią się tutaj po publikacji.</div>'; }
   catch (error) { target.innerHTML = '<div class="empty-state">Treści będą dostępne po opublikowaniu pierwszego wpisu.</div>'; }
 }
+async function loadImportant() {
+  const target = document.getElementById('important-list'); if (!target) return;
+  try {
+    const [news, notices] = await Promise.all([getItems('aktualnosci'), getItems('ogloszenia')]);
+    const today = new Date().toISOString().slice(0, 10);
+    const items = [...news.map(item => ({...item, __kind: 'aktualnosci'})), ...notices.map(item => ({...item, __kind: 'ogloszenia'}))].filter(item => item.important && (!item.valid_until || item.valid_until >= today)).sort((a, b) => String(b.date || '').localeCompare(String(a.date || '')));
+    target.innerHTML = items.length ? items.map(item => { const link = `wpis.html?kind=${item.__kind}&id=${encodeURIComponent(item.id)}`; return `<article><span class="alert-type">WAŻNE</span><div><h3><a href="${link}">${escapeHtml(item.title)}</a></h3><p>${escapeHtml(item.text)}</p>${item.valid_until ? `<small>Ważne do: ${escapeHtml(item.valid_until)}</small>` : ''}</div><a href="${link}" aria-label="Czytaj komunikat">→</a></article>`; }).join('') : '<div class="empty-state">Brak wyróżnionych komunikatów.</div>';
+  } catch (error) { target.innerHTML = '<div class="empty-state">Brak wyróżnionych komunikatów.</div>'; }
+}
 async function loadDetail() {
   const target = document.getElementById('article-view'); if (!target) return;
   const params = new URLSearchParams(location.search); const kind = params.get('kind'); const id = params.get('id');
@@ -40,4 +49,4 @@ async function loadDetail() {
 }
 function escapeHtml(value) { return String(value ?? '').replace(/[&<>'"]/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[char])); }
 function safePath(value) { return String(value || '').replace(/[^a-zA-Z0-9_:\/.?=&%#-]/g, ''); }
-document.addEventListener('DOMContentLoaded', () => { loadContent('aktualnosci', 'aktualnosci-list'); loadContent('ogloszenia', 'ogloszenia-list'); loadContent('kronika', 'kronika-list'); loadDetail(); });
+document.addEventListener('DOMContentLoaded', () => { loadContent('aktualnosci', 'aktualnosci-list'); loadContent('ogloszenia', 'ogloszenia-list'); loadContent('kronika', 'kronika-list'); loadImportant(); loadDetail(); });
